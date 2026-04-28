@@ -45,3 +45,10 @@ This Project creates a decentralize communication, while being able to communica
 | ATAK | Android Team Awareness Kit app used for mapping, tracking, and communication |
 | Meshtastic ATAK Plugin | Allows ATAK to work with Meshtastic devices |
 | Web Browser | Used to access the OpenTAK Server Web UI |
+
+
+## Server Diagram
+
+The diagram below shows how the system connects together. The Raspberry Pi runs OpenTAK Server, the wireless router provides the local network, the battery bank powers the portable setup, and ATAK devices connect through the network.
+
+![Server Diagram](Images/server-diagram.png)
