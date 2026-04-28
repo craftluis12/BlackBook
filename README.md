@@ -79,10 +79,66 @@ OpenTAK Server
 | Meshtastic Device     | Supports mesh communication                             |
 | OpenTAK Server Web UI | Used to manage users, settings, and server access       |
 
+## Setting Up OpenTAK Server
+```text
+# Step 1: Flash the Raspberry Pi:
+Download an image of **Ubuntu Server** flash it to the Raspberry Pi 5. Using the **Raspberry Pi Imager** to flash the operating system onto the SD card.
 
+# Step 2: Install OpenTAK Server:
+After the Raspberry Pi boots, open a terminal and run the correct command for your operating system.
 
+curl https://i.opentakserver.io/ubuntu_installer -Ls | bash -
 
+# Step 3: Answer the Installer Prompts
+During the installation, the installer may ask if you want to install **ZeroTier**.
+For this setup, select:
+"No"
+For the other installation prompts, select:
+"Yes"
 
+# Step 4: Open the OpenTAK Server Web UI
+After OpenTAK Server is installed, open a web browser and enter the Raspberry Pi IP address.
+Example:
+"http://RASPBERRY_PI_IP" Replace `RASPBERRY_PI_IP` with the actual IP address of your Raspberry Pi. This should open the OpenTAK Server management Web UI.
+
+# Step 5: Log In and Change the Default Password
+Use the default login:
+Username: administrator
+Password: password
+After logging in, change the default password.
+To change the password:
+1. Go to **Admin**.
+2. Go to **Users**.
+3. Select the administrator account.
+4. Click **Reset Password**.
+5. Create a new password.
+
+# Step 6: Enable Meshtastic in the Config File
+After logging in and changing the password, open a terminal on the Raspberry Pi.
+Go to the OpenTAK Server folder:
+cd ots/
+
+Open the configuration file:
+nano config.yml
+
+Find this setting:
+OTS_ENABLE_MESHTASTIC: false
+Change it to:
+OTS_ENABLE_MESHTASTIC: true
+
+Then find this setting:
+OTS_MESHTASTIC_TOPIC: opentakserver
+You can keep the default topic or change it to your own topic name. Make sure this topic matches the Meshtastic MQTT topic you use later.
+Save and exit:
+CTRL + O
+ENTER
+CTRL + X
+
+Reboot the Raspberry Pi:
+sudo reboot now
+After the reboot, OpenTAK Server should be ready for Meshtastic configuration.
+
+```
 
 
 
