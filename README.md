@@ -82,22 +82,22 @@ OpenTAK Server
 # Setting Up OpenTAK Server
 ```text
 # Step 1: Flash the Raspberry Pi:
-Download an image of **Ubuntu Server** flash it to the Raspberry Pi 5. Using the **Raspberry Pi Imager** to flash the operating system onto the SD card.
+- Download an image of **Ubuntu Server** flash it to the Raspberry Pi 5. Using the **Raspberry Pi Imager** to flash the operating system onto the SD card.
 
 # Step 2: Install OpenTAK Server:
-After the Raspberry Pi boots, open a terminal and run the correct command for your operating system.
+- After the Raspberry Pi boots, open a terminal and run the correct command for your operating system.
 
 curl https://i.opentakserver.io/ubuntu_installer -Ls | bash -
 
 # Step 3: Answer the Installer Prompts
-During the installation, the installer may ask if you want to install **ZeroTier**.
+- During the installation, the installer may ask if you want to install **ZeroTier**.
 For this setup, select:
 "No"
 For the other installation prompts, select:
 "Yes"
 
 # Step 4: Open the OpenTAK Server Web UI
-After OpenTAK Server is installed, open a web browser and enter the Raspberry Pi IP address.
+- After OpenTAK Server is installed, open a web browser and enter the Raspberry Pi IP address.
 Example:
 "http://RASPBERRY_PI_IP" Replace `RASPBERRY_PI_IP` with the actual IP address of your Raspberry Pi. This should open the OpenTAK Server management Web UI.
 
@@ -105,7 +105,7 @@ Example:
 Use the default login:
 Username: administrator
 Password: password
-After logging in, change the default password.
+- After logging in, change the default password.
 To change the password:
 1. Go to **Admin**.
 2. Go to **Users**.
@@ -114,7 +114,7 @@ To change the password:
 5. Create a new password.
 
 # Step 6: Enable Meshtastic in the Config File
-After logging in and changing the password, open a terminal on the Raspberry Pi.
+- After logging in and changing the password, open a terminal on the Raspberry Pi.
 Go to the OpenTAK Server folder:
 cd ots/
 
@@ -128,7 +128,7 @@ OTS_ENABLE_MESHTASTIC: true
 
 Then find this setting:
 OTS_MESHTASTIC_TOPIC: opentakserver
-You can keep the default topic or change it to your own topic name. Make sure this topic matches the Meshtastic MQTT topic you use later.
+- You can keep the default topic or change it to your own topic name. Make sure this topic matches the Meshtastic MQTT topic you use later.
 Save and exit:
 CTRL + O
 ENTER
@@ -136,7 +136,7 @@ CTRL + X
 
 Reboot the Raspberry Pi:
 sudo reboot now
-After the reboot, OpenTAK Server should be ready for Meshtastic configuration.
+- After the reboot, OpenTAK Server should be ready for Meshtastic configuration.
 ```
 
 # Flashing the Meshtastic Device
@@ -144,7 +144,7 @@ After the reboot, OpenTAK Server should be ready for Meshtastic configuration.
 ```text
 # Step 1: Download the USB Drivers
 
-Go to the Meshtastic ESP32 serial driver page:
+- Go to the Meshtastic ESP32 serial driver page:
 https://meshtastic.org/docs/getting-started/serial-drivers/esp32/
 
 Download both drivers: -Note If using Linux or Mac just follow their instruction
@@ -153,7 +153,7 @@ Download both drivers: -Note If using Linux or Mac just follow their instruction
 > **Important:** Extract both driver downloads into one folder. This makes it easier to select the correct driver folder later.
 
 # Step 2: Connect the Meshtastic Device
-Connect the Meshtastic device to your computer using a USB cable.
+- Connect the Meshtastic device to your computer using a USB cable.
 
 On Windows, open:
 Control Panel > Hardware and Sound > Devices and Printers
@@ -174,13 +174,134 @@ After finding the device in Device Manager:
 
 Open the Meshtastic web flasher:
 https://flasher.meshtastic.org
-Follow the instructions on the website to flash the correct firmware onto your Meshtastic device.
+- Follow the instructions on the website to flash the correct firmware onto your Meshtastic device.
 
-After flashing is complete, the device should be ready for setup in the Meshtastic mobile app.
+- After flashing is complete, the device should be ready for setup in the Meshtastic mobile app.
 
 ```
 
+# Setting Up the Meshtastic Device for the Server
+```text
 
+# Step 1: Connect the Meshtastic Device Through Bluetooth
+- After flashing the Meshtastic device, turn it on and enable Bluetooth on your phone.
+- Look for the Meshtastic device in your Bluetooth list. The device should appear with its own unique name.
+- Select the device, enter the pairing PIN if prompted, and connect to it.
+
+# Step 2: Install the Meshtastic App
+- Install the **Meshtastic** app from the Google Play Store or Apple App Store.
+- Open the app and make sure it connects to your Meshtastic device.
+- Set the region based on your location.
+
+# Step 3: Open Radio Configuration
+
+Once the Meshtastic app is connected to your device:
+1. Tap the **three dots** in the top-right corner.
+2. Open **Radio Configuration**.
+
+# Step 4: Set the Device Role and Wi-Fi
+
+Inside **Radio Configuration**:
+1. Go to **Device**.
+2. Make sure the device role is set to **Client**.
+3. Go to **Network**.
+4. Connect the Meshtastic device to the same Wi-Fi network that the OpenTAK Server is using.
+
+# Step 5: Configure MQTT
+- Inside **Radio Configuration**, go to **MQTT**.
+- Enable MQTT and configure it so the Meshtastic device can communicate with the OpenTAK Server.
+- Make sure the MQTT topic matches the topic you set in the OpenTAK Server configuration file.
+Example OpenTAK Server setting:
+OTS_MESHTASTIC_TOPIC: opentakserver
+
+- Use the same topic in the Meshtastic MQTT settings.
+
+- After saving the MQTT settings, restart the Meshtastic device if needed.
+```
+
+# Meshtastic ATAK Setup
+```text
+
+# Step 1: Download the Meshtastic ATAK Plugin
+
+Go to the Meshtastic ATAK Plugin GitHub page:
+https://github.com/meshtastic/ATAK-Plugin
+- Download the plugin file to your Android device.
+- After the download finishes, open the plugin file.
+
+# Step 2: Install the Plugin in ATAK
+- Download and open the **ATAK** app.
+Inside ATAK:
+1. Go to **Plugins**.
+2. Select **Install Plugin**.
+3. Choose the Meshtastic plugin file you downloaded.
+4. Install and enable the plugin.
+
+# Step 3: Enable Meshtastic Relay Settings
+Inside ATAK, go to:
+Settings > Tool Preferences > Specific Tool Preferences > Meshtastic Preferences
+
+Enable the following options:
+Enable relay to server
+Enable relay from server
+
+- These settings allow ATAK to relay Meshtastic data to and from the OpenTAK Server.
+```
+
+# Connecting ATAK to the Server Using SSL
+
+```text
+> **Note:** Each device that uses SSL needs the **Truststore Certificate** from the OpenTAK Server. You can move the certificate to the device using a USB flash drive, file transfer, or a quick Python file server.
+
+# Step 1: Create a User in OpenTAK Server
+- Go to the OpenTAK Server Web UI and create an account for each user that will connect to the server using SSL.
+- Each ATAK device should have its own username and password.
+
+# Step 2: Open Server Connection Settings in ATAK
+Open the ATAK app and go to:
+Settings > Network Preferences > Network Connection Preferences > Manage Server Connections
+
+Tap the **three dots** in the top-right corner, then select:
+Add
+
+# Step 3: Add the Server Information
+Fill in the server connection information:
+Name: Any name you want
+Server Address: OpenTAK Server IP address
+
+Then enable:
+Use Authentication
+Enroll for Client Certificate
+Enroll with Preconfigured Trust
+
+- Enter the username and password provided by the OpenTAK Server admin.
+
+# Step 4: Configure SSL Settings
+- Open **Advanced Options**.
+
+Set the connection type to:
+SSL
+
+Set the server port to:
+8089
+
+Then uncheck:
+Use default SSL/TLS Certificates
+
+
+# Step 5: Import the Truststore Certificate
+Tap:
+Import Trust Store
+
+- Select the **Truststore Certificate** that was downloaded from the OpenTAK Server.
+
+When asked for the password, enter:
+atakatak
+
+- Then tap **OK**.
+
+- After this, ATAK should be able to connect to the OpenTAK Server using SSL.
+```
 
 
 
