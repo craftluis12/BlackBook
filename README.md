@@ -46,8 +46,30 @@ This Project creates a decentralize communication, while being able to communica
 | Meshtastic ATAK Plugin | Allows ATAK to work with Meshtastic devices |
 | Web Browser | Used to access the OpenTAK Server Web UI |
 
+# System Overview
 
+- This setup creates a portable OpenTAK Server network that can be used for local communication, tracking, and field testing. The Raspberry Pi 5 runs the OpenTAK Server, while the mini wireless router creates the local network that all devices connect to. ATAK devices, such as Android phones or tablets, connect to the OpenTAK Server through the router. Once connected, users can share location data and communicate through the ATAK system. Meshtastic devices can also be added to support mesh communication when direct network coverage is limited.
 
+## How It Connects
+```text
+Battery Bank
+     ↓
+Raspberry Pi 5
+     ↓
+OpenTAK Server
+     ↓
+Mini Wireless Router
+     ↓
+ATAK Phones / Tablets
+
+Meshtastic Device
+     ↓
+Meshtastic ATAK Plugin
+     ↓
+ATAK
+     ↓
+OpenTAK Server
+```
 
 
 
