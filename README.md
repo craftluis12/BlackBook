@@ -5,7 +5,6 @@ This Project creates a decentralize communication, while being able to communica
 
 - [Project Overview](#project-overview)
 - [Hardware Needed](#hardware-needed)
-- [Optional Hardware](#optional-hardware)
 - [Software Needed](#software-needed)
 - [System Overview](#system-overview)
 - [Setting Up OpenTAK Server](#setting-up-opentak-server)
