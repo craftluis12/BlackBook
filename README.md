@@ -51,4 +51,4 @@ This Project creates a decentralize communication, while being able to communica
 
 The diagram below shows how the system connects together. The Raspberry Pi runs OpenTAK Server, the wireless router provides the local network, the battery bank powers the portable setup, and ATAK devices connect through the network.
 
-![Server Diagram](Images/server-diagram.png)
+![Server Diagram](server-diagram.png)
