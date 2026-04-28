@@ -18,11 +18,11 @@ This Project creates a decentralize communication, while being able to communica
 
 # OpenTAK Server and Meshtastic Setup
 
-## Project Overview
+# Project Overview
 
 - This project documents the setup of an OpenTAK Server system using a Raspberry Pi 5, Meshtastic devices, ATAK, and a local wireless network. The goal of this setup is to create a portable communication and tracking system where ATAK devices can connect to an OpenTAK Server and share information through the network. The Raspberry Pi 5 is used to host OpenTAK Server. A mini wireless router provides the local network, and Meshtastic devices are used to support off-grid communication. ATAK is used on mobile devices to connect to the server, view shared location data, and communicate with other users on the system. This setup is useful for testing portable field communication, local team tracking, and server-based ATAK networking.
 
-## Hardware Needed
+# Hardware Needed
 
 | Hardware | Purpose | Link |
 |---|---|---|
@@ -34,7 +34,7 @@ This Project creates a decentralize communication, while being able to communica
 
 
 
-## Software Needed
+# Software Needed
 
 | Software | Purpose |
 |---|---|
@@ -79,7 +79,7 @@ OpenTAK Server
 | Meshtastic Device     | Supports mesh communication                             |
 | OpenTAK Server Web UI | Used to manage users, settings, and server access       |
 
-## Setting Up OpenTAK Server
+# Setting Up OpenTAK Server
 ```text
 # Step 1: Flash the Raspberry Pi:
 Download an image of **Ubuntu Server** flash it to the Raspberry Pi 5. Using the **Raspberry Pi Imager** to flash the operating system onto the SD card.
@@ -137,9 +137,48 @@ CTRL + X
 Reboot the Raspberry Pi:
 sudo reboot now
 After the reboot, OpenTAK Server should be ready for Meshtastic configuration.
-
 ```
 
+# Flashing the Meshtastic Device
+
+```text
+# Step 1: Download the USB Drivers
+
+Go to the Meshtastic ESP32 serial driver page:
+https://meshtastic.org/docs/getting-started/serial-drivers/esp32/
+
+Download both drivers: -Note If using Linux or Mac just follow their instruction
+- **CP210X USB to UART Bridge Driver**
+- **CH9102 Driver for Windows**
+> **Important:** Extract both driver downloads into one folder. This makes it easier to select the correct driver folder later.
+
+# Step 2: Connect the Meshtastic Device
+Connect the Meshtastic device to your computer using a USB cable.
+
+On Windows, open:
+Control Panel > Hardware and Sound > Devices and Printers
+Look under **Unspecified** for the Meshtastic device.
+Then open **Device Manager** and find the device there.
+
+# Step 3: Update the Device Driver
+After finding the device in Device Manager:
+
+1. Right-click the device.
+2. Select **Update driver**.
+3. Select **Browse my computer for drivers**.
+4. Click **Browse**.
+5. Select the folder where both drivers were extracted.
+6. Click **Next** and let Windows install the driver.
+
+# Step 4: Flash Meshtastic Firmware
+
+Open the Meshtastic web flasher:
+https://flasher.meshtastic.org
+Follow the instructions on the website to flash the correct firmware onto your Meshtastic device.
+
+After flashing is complete, the device should be ready for setup in the Meshtastic mobile app.
+
+```
 
 
 
