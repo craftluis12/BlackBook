@@ -28,6 +28,20 @@ This Project creates a decentralize communication, while being able to communica
 |---|---|---|
 | Raspberry Pi 5 | Runs OpenTAK Server and manages connected ATAK clients | [Link to Buy](https://www.pishop.us/product/raspberry-pi-5-8gb/?src=raspberrypi) |
 | Mini Wireless Router | Creates the local network used by the Raspberry Pi, ATAK devices, and Meshtastic gateway | [Link to Buy](https://www.amazon.com/dp/B07794JRC5?ref=ppx_yo2ov_dt_b_fed_asin_title) |
-| Battery Bank | Powers the portable setup when wall power is not available | Add link here |
-| Meshtastic Device | Used for mesh communication and connection with the OpenTAK Server setup | Add link here |
+| Battery Bank | Powers the portable setup when wall power is not available | [Link to Buy](https://www.amazon.com/dp/B0DBG2D5DF?psc=1&pd_rd_i) |
+| Meshtastic Device | Used for mesh communication and connection with the OpenTAK Server setup | [Link to Buy](https://www.amazon.com/ESP32-V3-Module-3000mAh-Battery/dp/B0D7HSHTNX?crid=1N6MK9LUGZFUP&dib=eyJ2IjoiMSJ9.Uf) |
 | Phone or Tablet | Runs ATAK and connects to the OpenTAK Server | N/A |
+
+
+
+## Software Needed
+
+| Software | Purpose |
+|---|---|
+| OpenTAK Server | Main server used to manage ATAK connections and connected users |
+| Ubuntu Desktop or Raspberry Pi OS | Operating system used on the Raspberry Pi 5 |
+| Meshtastic Firmware | Firmware used on the Meshtastic device |
+| Meshtastic Mobile App | Used to configure the Meshtastic device |
+| ATAK | Android Team Awareness Kit app used for mapping, tracking, and communication |
+| Meshtastic ATAK Plugin | Allows ATAK to work with Meshtastic devices |
+| Web Browser | Used to access the OpenTAK Server Web UI |
