@@ -1,6 +1,5 @@
-# BlackBook
-This Project creates a decentralize communication, while being able to communicate with teams and being able to see each other in a map 
-
+# !!Notice!!
+- This project serves as a foundation for a portable OpenTAK Server and Meshtastic communication setup. The system uses a Raspberry Pi 5, a local wireless router, Meshtastic devices, and ATAK to create a basic field communication and tracking network. This setup is meant to be a starting point that can be expanded and improved. With better hardware, stronger radios, improved antennas, larger battery systems, and more advanced networking equipment, the system could become more powerful and reliable for field use. Future improvements could include stronger security, better enclosure design, GPS integration, longer-range communication, and more advanced server management.
 # Table of Contents
 
 - [Project Overview](#project-overview)
