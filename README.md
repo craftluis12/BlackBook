@@ -70,7 +70,14 @@ ATAK
      ↓
 OpenTAK Server
 ```
-
+| Part                  | Role                                                    |
+| --------------------- | ------------------------------------------------------- |
+| Raspberry Pi 5        | Hosts the OpenTAK Server                                |
+| Mini Wireless Router  | Provides the local network                              |
+| Battery Bank          | Powers the portable setup                               |
+| ATAK Device           | Connects users to the server and displays map/team data |
+| Meshtastic Device     | Supports mesh communication                             |
+| OpenTAK Server Web UI | Used to manage users, settings, and server access       |
 
 
 
