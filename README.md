@@ -307,4 +307,4 @@ atakatak
 
 The diagram below shows how the system connects together. The Raspberry Pi runs OpenTAK Server, the wireless router provides the local network, the battery bank powers the portable setup, and ATAK devices connect through the network.
 
-![Server Diagram](server-diagram4.png)
+![Server Diagram](server-diagram5.png)
