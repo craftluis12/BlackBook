@@ -211,7 +211,6 @@ Inside **Radio Configuration**:
 - Make sure the MQTT topic matches the topic you set in the OpenTAK Server configuration file.
 Example OpenTAK Server setting:
 OTS_MESHTASTIC_TOPIC: opentakserver
-
 - Use the same topic in the Meshtastic MQTT settings.
 
 - After saving the MQTT settings, restart the Meshtastic device if needed.
@@ -242,6 +241,7 @@ Settings > Tool Preferences > Specific Tool Preferences > Meshtastic Preferences
 Enable the following options:
 Enable relay to server
 Enable relay from server
+Only Sebd PLI and Chat
 
 - These settings allow ATAK to relay Meshtastic data to and from the OpenTAK Server.
 ```
